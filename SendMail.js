@@ -22,11 +22,9 @@ document.getElementById("contactForm").addEventListener("submit", async function
     btn.innerText = "Sending...";
 
     try {
-        // Use relative path - works on same domain (Vercel)
-        // For local testing, ensure your dev server handles /api/sendmail
-        const apiUrl = "/api/sendmail";
-        
-        const response = await fetch(apiUrl, {
+        // Point to the PHP backend that exists in the project
+        // (make sure a PHP server is running and serving this file)
+        const response = await fetch("https://vertex-send-mail-api.vercel.app/sendmail", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
