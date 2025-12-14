@@ -1,0 +1,14 @@
+{
+  "name": "vertex-india-compressors",
+  "version": "1.0.0",
+  "description": "Vertex India Compressors - Official Website",
+  "private": true,
+  "scripts": {
+    "dev": "vercel dev",
+    "build": "vercel build",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  }
+}
