@@ -24,7 +24,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     try {
         // Point to the PHP backend that exists in the project
         // (make sure a PHP server is running and serving this file)
-        const response = await fetch("http://localhost:3000/sendmail", {
+        const response = await fetch("https://vertex-send-mail-api.vercel.app", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
