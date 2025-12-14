@@ -1,0 +1,2458 @@
+<!DOCTYPE html>
+<html lang="en" style="height: auto; min-height: 100%;">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title src="/logo/vertexlogo.png"></title>
+    <script src="/tailwindcss 3.4.17"></script>
+
+    <link rel="stylesheet" href="/font-awesome css/css/all.min.css">
+    <link rel="stylesheet" href="/aos.css">
+    <link rel="stylesheet" href="/swiper-bundle.min.css">
+    <script src="/aos.js"></script>
+    <script src="/swiper-bundle.min.js"></script>
+</head>
+
+<body class="font-sans antialiased" style="height: auto; min-height: 100%;">
+    <!-- WhatsApp floating icon styles -->
+    <style>
+        /* Floating WhatsApp mini icon (site-wide) */
+        .whatsapp-fab {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            width: 44px;
+            height: 44px;
+            background: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: transform .12s ease, box-shadow .12s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-fab:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 18px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-fab svg {
+            width: 22px;
+            height: 22px;
+            fill: #fff;
+            display: block
+        }
+
+        /* Font Awesome icon fallback/sizing */
+        .whatsapp-fab i {
+            font-size: 22px;
+            color: #fff;
+            line-height: 1;
+            display: block
+        }
+
+        /* Product Cards Alignment */
+        .product-grid {
+            align-items: stretch;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .product-card > div:last-child {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-card p {
+            flex-grow: 1;
+        }
+
+        .product-card a {
+            margin-top: auto;
+        }
+
+        /* Image centering */
+        .product-card .relative {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-card img {
+            object-fit: cover;
+            object-position: center;
+        }
+    </style>
+
+    <!-- Top Bar -->
+    <div class="bg-blue-900 text-white py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row justify-between items-center text-sm">
+                <div class="flex items-center space-x-4 mb-2 sm:mb-0">
+                    <span><i class="fas fa-phone mr-2"></i>+91 123 456 7890</span>
+                    <span><i class="fas fa-envelope mr-2"></i>info@vertexindia.com</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <a href="#" class="hover:text-blue-300 transition"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="hover:text-blue-300 transition"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="hover:text-blue-300 transition"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="hover:text-blue-300 transition"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <div class="flex items-center cursor-pointer" onclick="showPage('home')">
+
+                        <!-- Logo Image -->
+                        <div class="w-12 h-12 mr-3 flex items-center justify-center">
+                            <img src="/logo/vertexlogo.png" alt="Vertex India Logo"
+                                class="w-full h-full object-contain rounded-md" />
+                        </div>
+
+                        <!-- Brand Text -->
+                        <div class="leading-tight">
+                            <span class="text-2xl font-bold text-gray-900 block">
+                                Vertex India
+                            </span>
+                            <span class="text-sm text-gray-500 block">
+                                Compressors &amp; Solutions
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="hidden lg:flex space-x-8">
+                    <a href="#" onclick="showPage('home')"
+                        class="nav-link text-gray-700 hover:text-blue-600 transition font-medium">Home</a>
+                    <a href="#" onclick="showPage('about')"
+                        class="nav-link text-gray-700 hover:text-blue-600 transition font-medium">About Us</a>
+                    <a href="#" onclick="showPage('products')"
+                        class="nav-link text-gray-700 hover:text-blue-600 transition font-medium">Products</a>
+                    <a href="#" onclick="showPage('catalog')"
+                        class="nav-link text-gray-700 hover:text-blue-600 transition font-medium">Catalog</a>
+                    <a href="#" onclick="showPage('industries')"
+                        class="nav-link text-gray-700 hover:text-blue-600 transition font-medium">Industries</a>
+                    <a href="#" onclick="showPage('contact')"
+                        class="nav-link text-gray-700 hover:text-blue-600 transition font-medium">Contact</a>
+                </div>
+                <div class="hidden lg:block">
+                    <a href="#" onclick="showPage('contact')"
+                        class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                        Get Quote
+                    </a>
+                </div>
+                <button id="mobileMenuBtn" class="lg:hidden text-gray-700">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-white shadow-lg">
+        <div class="px-4 py-4 space-y-3">
+            <a href="#" onclick="showPage('home')"
+                class="block text-gray-700 hover:text-blue-600 transition font-medium py-2">Home</a>
+            <a href="#" onclick="showPage('about')"
+                class="block text-gray-700 hover:text-blue-600 transition font-medium py-2">About Us</a>
+            <a href="#" onclick="showPage('products')"
+                class="block text-gray-700 hover:text-blue-600 transition font-medium py-2">Products</a>
+            <a href="#" onclick="showPage('catalog')"
+                class="block text-gray-700 hover:text-blue-600 transition font-medium py-2">Catalog</a>
+            <a href="#" onclick="showPage('industries')"
+                class="block text-gray-700 hover:text-blue-600 transition font-medium py-2">Industries</a>
+            <a href="#" onclick="showPage('contact')"
+                class="block text-gray-700 hover:text-blue-600 transition font-medium py-2">Contact</a>
+        </div>
+    </div>
+
+    <!-- HOME PAGE -->
+    <div id="homePage" class="page-content">
+        <!-- Hero Section with Slider -->
+        <section class="relative bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900 text-white overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=" 60"
+                    height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg" %3E%3Cg fill="none"
+                    fill-rule="evenodd\" %3E%3Cg fill="%23ffffff" fill-opacity="1" %3E%3Cpath d="M36
+                    34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6
+                    34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\" /%3E%3C/g%3E%3C/g%3E%3C/svg%3E');">
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 relative">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <div class="inline-block bg-blue-700 bg-opacity-50 px-4 py-2 rounded-full mb-6">
+                            <span class="text-sm font-semibold">🌍 Global Leader in Compressed Air Solutions</span>
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+                            Eco-Friendly Compressed Air Solutions
+                        </h1>
+                        <p class="text-lg sm:text-xl text-blue-100 mb-8">
+                            With nearly a decade of experience, Vertex India Compressors stands as one of the largest
+                            manufacturers of industrial air compressors in India, delivering quality and innovation.
+                        </p>
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="#" onclick="showPage('products')"
+                                class="bg-white text-blue-900 px-8 py-4 rounded-lg hover:bg-blue-50 transition text-center font-bold shadow-lg">
+                                View Products
+                            </a>
+                            <a href="#" onclick="showPage('contact')"
+                                class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-900 transition text-center font-bold">
+                                Request Quote
+                            </a>
+                        </div>
+                        <div class="mt-12 grid grid-cols-3 gap-6">
+                            <div>
+                                <div class="text-3xl font-bold mb-1">10+</div>
+                                <div class="text-blue-200 text-sm">Years Experience</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold mb-1">5000+</div>
+                                <div class="text-blue-200 text-sm">Installations</div>
+                            </div>
+                            <div>
+                                <div class="text-3xl font-bold mb-1">100%</div>
+                                <div class="text-blue-200 text-sm">Quality Assured</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden lg:block" data-aos="fade-left">
+                        <div class="swiper productSlider rounded-2xl shadow-2xl overflow-hidden">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <img src="/banner/banner 1.png" alt="Rotary Screw Compressor"
+                                        class="w-full h-96 object-cover">
+                                    <!-- <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                        <h3 class="text-white text-2xl font-bold">Rotary Screw Compressor</h3>
+                                        <p class="text-blue-200">High-efficiency continuous operation</p>
+                                    </div> -->
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/banner/banner 2.png" alt="Oil-Free Compressor"
+                                        class="w-full h-96 object-cover">
+                                    <!-- <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                        <h3 class="text-white text-2xl font-bold">Oil-Free Compressor</h3>
+                                        <p class="text-blue-200">Clean air for sensitive applications</p>
+                                    </div> -->
+                                </div>
+                                <div class="swiper-slide">
+                                    <img src="/banner/banner 3.png" alt="Oil-Free Compressor"
+                                        class="w-full h-96 object-cover">
+                                    <!-- <div
+                                        class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                                        <h3 class="text-white text-2xl font-bold">Oil-Free Compressor</h3>
+                                        <p class="text-blue-200">Clean air for sensitive applications</p>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Features -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-award text-blue-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Quality Assured</h3>
+                        <p class="text-gray-600">ISO certified manufacturing with stringent quality control</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-leaf text-green-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Eco-Friendly</h3>
+                        <p class="text-gray-600">Energy-efficient solutions for sustainable operations</p>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-headset text-purple-600 text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">24/7 Support</h3>
+                        <p class="text-gray-600">Dedicated sales and service team for customer satisfaction</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Company Section -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div data-aos="fade-right">
+                        <img src="/images/CompAirImage.png" alt="Manufacturing Excellence"
+                            class="rounded-2xl shadow-2xl">
+                    </div>
+                    <div data-aos="fade-left">
+                        <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">About Vertex
+                            India</span>
+                        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mt-2 mb-6">
+                            Leading Manufacturer of Industrial Air Compressors
+                        </h2>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Vertex India Compressors, a global leader in providing eco-friendly compressed air
+                            solutions, has established itself as a frontrunner in the industry with more than two
+                            decades of experience in manufacturing air compressors.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-6">
+                            We stand as one of the largest manufacturers of industrial air compressors in India, known
+                            for our market presence. Our product portfolio includes rotary screw compressors,
+                            reciprocating compressors, oil-free compressors, dental compressors, PET compressors,
+                            refrigeration dryers, piston compressors and more.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">ISO Certified</h4>
+                                    <p class="text-gray-600 text-sm">International standards</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Expert Team</h4>
+                                    <p class="text-gray-600 text-sm">Skilled professionals</p>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#" onclick="showPage('about')"
+                            class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                            Learn More About Us
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Categories Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Our Products</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">
+                        Comprehensive Range of Air Compressors
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        High-quality industrial air compressors designed for efficiency, reliability, and performance
+                        across diverse industries
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 product-grid">
+                    <!-- Rotary Screw Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group product-card"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Tank Mounted Screw Air Compressor.png" alt="Rotary Screw Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                            <!-- <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Popular
+                            </div> -->
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Tank Mounted Screw Air Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                Compressors frequently use synthetic lubricants based on the OEM’s recommendation.
+                                Equipment manufacturers often require the use of their branded lubricants as a…
+                            </p>
+                            <!-- <ul class="space-y-2 mb-4">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Energy efficient operation
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Low noise levels
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Continuous duty cycle
+                                </li>
+                            </ul> -->
+                            <a href="#" onclick="showPage('products')"
+                                class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Reciprocating Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group product-card"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Extra Efficient Permanent Magneic Motor.png"
+                                alt="Reciprocating Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Extra Efficient Permanent Magneic Motor
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Therefore, the efficiency coefficient of the PMSM varies from 92% to 97%. As a result,
+                                this type of motor is replacing…
+                            </p>
+                            <!-- <ul class="space-y-2 mb-4">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    High pressure capability
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Durable construction
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Cost-effective solution
+                                </li>
+                            </ul> -->
+                            <a href="#" onclick="showPage('products')"
+                                class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Oil-Free Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group product-card"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Tank Mounted Singal Stage Reciprocating Air Compressor.png"
+                                alt="Oil-Free Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                            <!-- <div class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Eco-Friendly
+                            </div> -->
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Tank Mounted Singal Stage Reciprocating Air
+                                Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                Single-stage compressors are also known as piston compressors. The process that takes
+                                place within a single-stage compressor goes as follows:
+                            </p>
+                            <!-- <ul class="space-y-2 mb-4">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    100% oil-free air
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Food-grade certified
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Low maintenance
+                                </li>
+                            </ul> -->
+                            <a href="#" onclick="showPage('products')"
+                                class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Dental Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group product-card"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Base Mounted Screw Air Compressor.png" alt="Dental Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Base Mounted Screw Air Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                A Base Mounted Screw Air Compressor is a type of industrial air compressor that is
+                                designed for stability and ease…
+                            </p>
+                            <!-- <ul class="space-y-2 mb-4">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Ultra-quiet operation
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Medical-grade air
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Compact design
+                                </li>
+                            </ul> -->
+                            <a href="#" onclick="showPage('products')"
+                                class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- PET Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group product-card"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/TANK Mounted High Pressure Reciprocating Air Compressor.png"
+                                alt="PET Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">TANK Mounted High Pressure Reciprocating
+                                Air Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                In addition to capacity, compressed air tanks have a maximum pressure rating measured in
+                                pounds-per-square-inch or psi. Common ratings range…
+                            </p>
+                            <!-- <ul class="space-y-2 mb-4">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    High pressure output
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Energy efficient
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Reliable performance
+                                </li>
+                            </ul> -->
+                            <a href="#" onclick="showPage('products')"
+                                class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Refrigeration Dryer -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group product-card"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Tank Mounted Low Pressure Lub.Air Compressor.png"
+                                alt="Refrigeration Dryer"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Tank Mounted Low Pressure Lub.Air
+                                Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                Compressors frequently use synthetic lubricants based on the OEM’s recommendation.
+                                Equipment manufacturers often require the use of their branded lubricants as a…
+                            </p>
+                            <!-- <ul class="space-y-2 mb-4">
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Efficient moisture removal
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Energy-saving design
+                                </li>
+                                <li class="flex items-center text-sm text-gray-600">
+                                    <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                                    Low dew point
+                                </li>
+                            </ul> -->
+                            <a href="#" onclick="showPage('products')"
+                                class="block text-center bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                                View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a href="#" onclick="showPage('products')"
+                        class="inline-block bg-blue-600 text-white px-8 py-4 rounded-lg hover:bg-blue-700 transition font-bold text-lg">
+                        View All Products
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose Us Section -->
+        <section class="py-20 bg-gradient-to-br from-blue-900 to-blue-800 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-300 font-semibold text-sm uppercase tracking-wide">Why Choose Us</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mt-2 mb-4">
+                        What Makes Us Different
+                    </h2>
+                    <p class="text-lg text-blue-100 max-w-3xl mx-auto">
+                        We prioritize exceeding expectations by intuitively addressing needs and going the extra mile in
+                        our interactions
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="100">
+                        <div
+                            class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-users text-white text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Skilled Workforce</h3>
+                        <p class="text-blue-100">
+                            Highly skilled and experienced workers bringing expertise to every aspect of operations
+                        </p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="200">
+                        <div
+                            class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-shield-alt text-white text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Quality Guarantee</h3>
+                        <p class="text-blue-100">
+                            Highest standards of craftsmanship with advanced quality control processes
+                        </p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="300">
+                        <div
+                            class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-chart-line text-white text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Quickly Growing</h3>
+                        <p class="text-blue-100">
+                            Rapid growth and expansion fueled by market demand and exceptional service delivery
+                        </p>
+                    </div>
+                    <div class="text-center" data-aos="zoom-in" data-aos-delay="400">
+                        <div
+                            class="w-24 h-24 bg-white bg-opacity-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-cogs text-white text-4xl"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3">Modern Equipment</h3>
+                        <p class="text-blue-100">
+                            State-of-the-art machinery and cutting-edge technologies for superior products
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                        <div class="text-5xl font-bold mb-2">10+</div>
+                        <div class="text-blue-200">Years of Excellence</div>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                        <div class="text-5xl font-bold mb-2">5000+</div>
+                        <div class="text-blue-200">Happy Customers</div>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                        <div class="text-5xl font-bold mb-2">50+</div>
+                        <div class="text-blue-200">Expert Technicians</div>
+                    </div>
+                    <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                        <div class="text-5xl font-bold mb-2">24/7</div>
+                        <div class="text-blue-200">Customer Support</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries We Serve -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Industries</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">
+                        Serving Diverse Industries
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Our products find extensive utilization across diverse industries with tailored services for
+                        specific requirements
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/aerospace.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            AeroSpace
+                        </h4>
+                    </div>
+
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/chemicals.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Chemical,Plastics and Rubber
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/cusumer.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Consumer
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/electronics.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Electronics and semiconductor
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Environment.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Environmental
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Food.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Food and Beverage
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/General\ manufacuturing.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            General manufacturing
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/cement.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Cement
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/automobile.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            automobile
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/steel.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            steel
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Golf\ and\ resorts.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            golf and resorts
+
+
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Government\ and\ Military.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            government and military
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Industrial\ gases.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            industrial gases
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Marine.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            marine
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Mining\ and\ Construction.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            mining and construction
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Oil\ and\ Gas.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            oil and gas
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Forging.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            forging
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/PET\ Bottle\ Blowing.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            PET bottel blowing
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Pharma\,\ Life\ Sciences\ and\ Laboratories.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            pharma, life sciences and laboratories
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Power\ Generation.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            power generation
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Professional.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            professional
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Pulp\,\ Paper\ and\ Printing.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            pulp paper and printing
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Transportaion\ and\ Logistics.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            trasportaion and logistics
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Ceramic.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Ceramic
+                        </h4>
+                    </div>
+                </div>
+                <div class="text-center mt-12" data-aos="fade-up">
+                    <a href="#" onclick="showPage('industries')"
+                        class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                        View All Industries
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Quality -->
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Quality Standards</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">
+                        Certifications & Compliance
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        We adhere to international quality standards and hold multiple certifications ensuring product
+                        excellence
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                    <div class="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-2xl transition"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-certificate text-blue-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">ISO 9001:2015</h4>
+                        <p class="text-gray-600 text-sm">Quality Management</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-2xl transition"
+                        data-aos="zoom-in" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-leaf text-green-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">ISO 14001</h4>
+                        <p class="text-gray-600 text-sm">Environmental Management</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-2xl transition"
+                        data-aos="zoom-in" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-shield-alt text-purple-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">CE Certified</h4>
+                        <p class="text-gray-600 text-sm">European Standards</p>
+                    </div>
+                    <div class="bg-white rounded-xl p-8 shadow-lg text-center hover:shadow-2xl transition"
+                        data-aos="zoom-in" data-aos-delay="400">
+                        <div class="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-award text-orange-600 text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 mb-2">BIS Approved</h4>
+                        <p class="text-gray-600 text-sm">Bureau of Indian Standards</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Testimonials</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">
+                        What Our Clients Say
+                    </h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Trusted by leading industries across India for quality products and exceptional service
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">
+                            "Vertex India's rotary screw compressor has been running flawlessly for 3 years. Excellent
+                            quality and after-sales support. Highly recommended!"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-lg">RK</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Rajesh Kumar</h4>
+                                <p class="text-gray-600 text-sm">Manufacturing Unit, Delhi</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">
+                            "The oil-free compressor is perfect for our food processing plant. Clean air quality and
+                            energy-efficient operation. Great investment!"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-lg">PS</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Priya Sharma</h4>
+                                <p class="text-gray-600 text-sm">Food Industry, Mumbai</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="flex items-center mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 mb-6 italic">
+                            "Professional team, quality products, and prompt service. Our PET compressor handles
+                            high-pressure requirements perfectly. Very satisfied!"
+                        </p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                                <span class="text-white font-bold text-lg">AM</span>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Amit Mehta</h4>
+                                <p class="text-gray-600 text-sm">Beverage Plant, Pune</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="py-20 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div data-aos="fade-up">
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
+                        Ready to Find Your Perfect Compressor Solution?
+                    </h2>
+                    <p class="text-xl text-blue-100 mb-8 max-w-3xl mx-auto">
+                        Get in touch with our experts today for customized solutions tailored to your industry needs
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="#" onclick="showPage('contact')"
+                            class="bg-white text-blue-900 px-8 py-4 rounded-lg hover:bg-blue-50 transition text-center font-bold text-lg shadow-lg">
+                            Request a Quote
+                        </a>
+                        <a href="#" onclick="showPage('products')"
+                            class="border-2 border-white text-white px-8 py-4 rounded-lg hover:bg-white hover:text-blue-900 transition text-center font-bold text-lg">
+                            Browse Products
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- ABOUT PAGE -->
+    <div id="aboutPage" class="page-content hidden">
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">About Us</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">
+                        Leading Manufacturer of Industrial Air Compressors
+                    </h2>
+                </div>
+
+                <!-- Company Overview Video and Description -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+                    <!-- Video Section -->
+                    <div data-aos="fade-right">
+                        <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+                            <div class="relative" style="padding-bottom: 56.25%;">
+                                <iframe class="absolute top-0 left-0 w-full h-full"
+                                    src="/Videos/VID-20240307-WA0009.mp4" title="Company Overview"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                            <div class="p-6 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+                                <h3 class="text-2xl font-bold mb-2">Company Overview</h3>
+                                <p class="text-blue-100">Discover our journey, values, and commitment to excellence</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Company Overview Text -->
+                    <div data-aos="fade-left">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-xl h-full">
+                            <h3 class="text-3xl font-bold text-gray-900 mb-6">Company Overview</h3>
+                            <div class="space-y-4 text-gray-700 leading-relaxed">
+                                <p class="text-lg">
+                                    <strong>VERTEX INDIA</strong> stands as a testament to nearly a decade of extensive
+                                    experience in the Compressors Industry, serving at renowned industries across India.
+                                    VERTEX INDIA is dedicated to conducting business with unwavering ethics and a
+                                    commitment to creating a positive impact on industries.
+                                </p>
+                                <p class="text-lg">
+                                    Our leadership philosophy centers on ethical business practices and making a
+                                    meaningful difference in the industries. This guiding principle ensures that VERTEX
+                                    INDIA not only achieves its objectives but also nurtures trust-based relationships
+                                    with all stakeholders, laying the foundation for sustained success.
+                                </p>
+                                <p class="text-lg">
+                                    VERTEX INDIA initially setup new office and go down premises in <strong>Gurugram
+                                        (HR)</strong>, establishing a strong foundation for our operations and customer
+                                    service excellence.
+                                </p>
+                                <p class="text-lg">
+                                    VERTEX INDIA prides itself on having an experienced team of <strong>Sales & Service
+                                        professionals</strong>. Our personnel bring a wealth of knowledge to ensure that
+                                    our clients receive top-notch sales, After-market & service support, reinforcing our
+                                    dedication to customer satisfaction.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Factory Tour Video -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="bg-gray-900 rounded-2xl overflow-hidden shadow-2xl">
+                        <div class="relative" style="padding-bottom: 56.25%;">
+                            <iframe class="absolute top-0 left-0 w-full h-full"
+                                src="/Videos/VID-20240307-WA0008.mp4" title="Factory Tour" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+                        </div>
+                        <div class="p-6 bg-gradient-to-r from-green-900 to-green-800 text-white">
+                            <h3 class="text-2xl font-bold mb-2">Factory Tour - Manufacturing Excellence</h3>
+                            <p class="text-green-100">Take a virtual tour of our state-of-the-art manufacturing facility
+                                and see how we produce world-class compressors</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- What We Do Section -->
+                <div class="mb-16" data-aos="fade-up">
+                    <div class="text-center mb-12">
+                        <h3 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">What We Do</h3>
+                        <p class="text-lg text-gray-600 max-w-4xl mx-auto">
+                            VERTEX INDIA Compressors stands out due to its state-of-the-art facilities and advanced
+                            manufacturing technologies and processes. Cultivating strong connections with stakeholders
+                            is of utmost importance to us. Therefore, we prioritize exceeding their expectations by
+                            intuitively addressing their needs and going the extra mile in our interactions.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Skilled Workforce -->
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition"
+                            data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-users text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Skilled Workforce</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                We prioritize hiring and retaining highly skilled and experienced workers who bring
+                                their expertise to every aspect of our operations. Our team's wealth of knowledge
+                                ensures top-notch craftsmanship and consistently delivers exceptional air compressor
+                                solutions to our customers.
+                            </p>
+                        </div>
+
+                        <!-- Customer Focused -->
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition"
+                            data-aos="zoom-in" data-aos-delay="200">
+                            <div class="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-user-check text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Customer Focused</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                We consistently strive to understand and surpass customer expectations through attentive
+                                listening, personalized solutions, and a dedication to providing exceptional service.
+                                Our unwavering focus on customer satisfaction drives us to cultivate enduring
+                                relationships built on trust and mutual success.
+                            </p>
+                        </div>
+
+                        <!-- Quality Guarantee -->
+                        <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition"
+                            data-aos="zoom-in" data-aos-delay="300">
+                            <div class="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-shield-alt text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Quality Guarantee</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                At VERTEX INDIA Compressors, we adhere to the highest standards of craftsmanship and
+                                utilize advanced quality control processes to ensure that every product leaving our
+                                facilities meets or exceeds industry benchmarks. Our commitment to quality is
+                                unwavering, providing our customers with reliable and durable compressed air solutions
+                                they can trust.
+                            </p>
+                        </div>
+
+                        <!-- Quickly Growing -->
+                        <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition"
+                            data-aos="zoom-in" data-aos-delay="100">
+                            <div class="w-16 h-16 bg-orange-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-chart-line text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Quickly Growing</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                We are experiencing rapid growth and expansion. Our company's trajectory is marked by
+                                swift progress fueled by market demand and our dedication to delivering exceptional
+                                products and services. With each passing day, we are scaling new heights and solidifying
+                                our position as a dynamic and thriving organization in the industry.
+                            </p>
+                        </div>
+
+                        <!-- Cost Efficiency -->
+                        <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition"
+                            data-aos="zoom-in" data-aos-delay="200">
+                            <div class="w-16 h-16 bg-red-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-dollar-sign text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Cost Efficiency</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                We continuously strive to optimize our processes, streamline workflows, and leverage
+                                economies of scale to ensure we deliver the highest value to our customers at
+                                competitive prices. By maintaining a keen focus on cost efficiency, we maximize resource
+                                utilization and drive sustainable profitability, making us a trusted partner for
+                                cost-effective solutions.
+                            </p>
+                        </div>
+
+                        <!-- Modern Equipment -->
+                        <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-8 shadow-lg hover:shadow-2xl transition"
+                            data-aos="zoom-in" data-aos-delay="300">
+                            <div class="w-16 h-16 bg-indigo-600 rounded-2xl flex items-center justify-center mb-6">
+                                <i class="fas fa-cogs text-white text-3xl"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Modern Equipment</h4>
+                            <p class="text-gray-700 leading-relaxed">
+                                VERTEX INDIA Compressors invest in state-of-the-art machinery and cutting-edge
+                                technologies to enhance our manufacturing processes. By leveraging the power of modern
+                                equipment, we achieve greater precision, efficiency, and productivity, resulting in
+                                superior air compressors that meet the evolving needs of our customers.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- About Content -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+                    <div data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&h=600&fit=crop"
+                            alt="Manufacturing Facility" class="rounded-2xl shadow-2xl">
+                    </div>
+                    <div data-aos="fade-left">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Our Commitment to Quality</h3>
+                        <p class="text-lg text-gray-600 mb-6">
+                            Our product portfolio includes rotary screw compressors, reciprocating compressors, oil-free
+                            compressors, dental compressors, PET compressors, refrigeration dryers, piston compressors
+                            and more.
+                        </p>
+                        <p class="text-lg text-gray-600 mb-6">
+                            We work closely with leading component suppliers and employ advanced manufacturing
+                            techniques to ensure that every compressor bearing the Vertex India name is of the highest
+                            quality. Our products find extensive utilization across diverse industries, including food,
+                            beverage, chemical, oil & gas, and more.
+                        </p>
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">ISO Certified</h4>
+                                    <p class="text-gray-600 text-sm">Quality standards</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Eco-Friendly</h4>
+                                    <p class="text-gray-600 text-sm">Sustainable solutions</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">24/7 Support</h4>
+                                    <p class="text-gray-600 text-sm">Customer service</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div
+                                    class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                    <i class="fas fa-check text-blue-600 text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-900 mb-1">Custom Solutions</h4>
+                                    <p class="text-gray-600 text-sm">Tailored services</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Our Locations -->
+                <div class="mt-20" data-aos="fade-up">
+                    <h3 class="text-3xl font-bold text-gray-900 text-center mb-12">Our Locations</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 shadow-xl">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-building text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900">Gurugram Office</h4>
+                                    <p class="text-blue-600 font-semibold">Head Office & Godown</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Our primary office and warehouse facility in Gurugram, Haryana serves as the hub for our
+                                operations, sales, and distribution network.
+                            </p>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Gurugram, Haryana, India</span>
+                            </div>
+                        </div>
+                        <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 shadow-xl">
+                            <div class="flex items-center mb-4">
+                                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-industry text-white text-2xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold text-gray-900">Lucknow Branch</h4>
+                                    <p class="text-green-600 font-semibold">Regional Office</p>
+                                </div>
+                            </div>
+                            <p class="text-gray-700 mb-4">
+                                Our Lucknow branch provides comprehensive sales and service support to customers across
+                                Uttar Pradesh and surrounding regions.
+                            </p>
+                            <div class="flex items-center text-gray-600">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Lucknow, Uttar Pradesh, India</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- PRODUCTS PAGE -->
+    <div id="productsPage" class="page-content hidden">
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Our Products</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">Comprehensive Range
+                        of Air Compressors</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        High-quality industrial air compressors designed for efficiency, reliability, and performance
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 product-grid">
+                    <!-- Rotary Screw Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group cursor-pointer product-card"
+                        data-aos="fade-up" data-aos-delay="100" onclick="openProductModal('rotary')">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Tank Mounted Screw Air Compressor.png" alt="Rotary Screw Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                            <!-- <div class="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Popular
+                            </div> -->
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Tank Mounted Screw Air Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                Compressors frequently use synthetic lubricants based on the OEM’s recommendation.
+                                Equipment manufacturers often require the use of their branded lubricants as a…
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-semibold">Click for details</span>
+                                <i class="fas fa-arrow-right text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Reciprocating Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group cursor-pointer product-card"
+                        data-aos="fade-up" data-aos-delay="200" onclick="openProductModal('reciprocating')">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Extra Efficient Permanent Magneic Motor.png"
+                                alt="Reciprocating Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Extra Efficient Permanent Magneic Motor
+                            </h3>
+                            <p class="text-gray-600 mb-4">
+                                Therefore, the efficiency coefficient of the PMSM varies from 92% to 97%. As a result,
+                                this type of motor is replacing…
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-semibold">Click for details</span>
+                                <i class="fas fa-arrow-right text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Oil-Free Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group cursor-pointer product-card"
+                        data-aos="fade-up" data-aos-delay="300" onclick="openProductModal('oilfree')">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Tank Mounted Singal Stage Reciprocating Air Compressor.png"
+                                alt="Oil-Free Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                            <div
+                                class="absolute top-4 right-4 bg-green-600 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Eco-Friendly
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Tank Mounted Singal Stage Reciprocating Air
+                                Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                Single-stage compressors are also known as piston compressors.
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-semibold">Click for details</span>
+                                <i class="fas fa-arrow-right text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Dental Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group cursor-pointer product-card"
+                        data-aos="fade-up" data-aos-delay="100" onclick="openProductModal('dental')">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Base Mounted Screw Air Compressor.png" alt="Dental Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Base Mounted Screw Air Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                A Base Mounted Screw Air Compressor is a type of industrial air compressor that is
+                                designed for stability and ease…
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-semibold">Click for details</span>
+                                <i class="fas fa-arrow-right text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PET Compressor -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group cursor-pointer product-card"
+                        data-aos="fade-up" data-aos-delay="200" onclick="openProductModal('pet')">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/TANK Mounted High Pressure Reciprocating Air Compressor.png"
+                                alt="PET Compressor"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">TANK Mounted High Pressure Reciprocating
+                                Air Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                In addition to capacity, compressed air tanks have a maximum pressure rating measured in
+                                pounds-per-square-inch or psi. Common ratings range…
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-semibold">Click for details</span>
+                                <i class="fas fa-arrow-right text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Refrigeration Dryer -->
+                    <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition group cursor-pointer product-card"
+                        data-aos="fade-up" data-aos-delay="300" onclick="openProductModal('dryer')">
+                        <div class="relative overflow-hidden h-64">
+                            <img src="/images/Tank Mounted Low Pressure Lub.Air Compressor.png"
+                                alt="Refrigeration Dryer"
+                                class="w-full h-full object-cover object-center group-hover:scale-110 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-gray-900 mb-3">Tank Mounted Low Pressure Lub.Air
+                                Compressor</h3>
+                            <p class="text-gray-600 mb-4">
+                                Compressors frequently use synthetic lubricants based on the OEM’s recommendation.
+                                Equipment manufacturers often require the use of their branded lubricants as a…
+                            </p>
+                            <div class="flex items-center justify-between">
+                                <span class="text-blue-600 font-semibold">Click for details</span>
+                                <i class="fas fa-arrow-right text-blue-600"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CATALOG PAGE -->
+    <div id="catalogPage" class="page-content hidden">
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Downloads</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">Product Catalogs &
+                        Documents</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Download our comprehensive product catalogs, technical specifications, and company documents
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Product Catalog -->
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-8 shadow-lg hover:shadow-2xl transition"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-book text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Complete Product Catalog</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Comprehensive catalog featuring all our compressor models with specifications and features
+                        </p>
+                        <div class="text-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-file-pdf mr-2"></i>PDF • 12.5 MB
+                        </div>
+                        <button
+                            class="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold">
+                            <i class="fas fa-download mr-2"></i>Download Catalog
+                        </button>
+                    </div>
+
+                    <!-- Technical Specifications -->
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-8 shadow-lg hover:shadow-2xl transition"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-file-alt text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Technical Specifications</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Detailed technical specifications, performance data, and engineering drawings
+                        </p>
+                        <div class="text-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-file-pdf mr-2"></i>PDF • 8.3 MB
+                        </div>
+                        <button
+                            class="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition font-semibold">
+                            <i class="fas fa-download mr-2"></i>Download Specs
+                        </button>
+                    </div>
+
+                    <!-- ISO Certificates -->
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-8 shadow-lg hover:shadow-2xl transition"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-certificate text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">ISO Certificates</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Quality certifications including ISO 9001, ISO 14001, and industry standards
+                        </p>
+                        <div class="text-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-file-pdf mr-2"></i>PDF • 3.2 MB
+                        </div>
+                        <button
+                            class="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition font-semibold">
+                            <i class="fas fa-download mr-2"></i>Download Certificates
+                        </button>
+                    </div>
+
+                    <!-- Installation Guide -->
+                    <div class="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-8 shadow-lg hover:shadow-2xl transition"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div class="w-20 h-20 bg-orange-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-tools text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Installation Guide</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Step-by-step installation instructions and setup guidelines for all models
+                        </p>
+                        <div class="text-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-file-pdf mr-2"></i>PDF • 5.7 MB
+                        </div>
+                        <button
+                            class="w-full bg-orange-600 text-white py-3 rounded-lg hover:bg-orange-700 transition font-semibold">
+                            <i class="fas fa-download mr-2"></i>Download Guide
+                        </button>
+                    </div>
+
+                    <!-- Maintenance Manual -->
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-8 shadow-lg hover:shadow-2xl transition"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div class="w-20 h-20 bg-red-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-wrench text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Maintenance Manual</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Comprehensive maintenance procedures, schedules, and troubleshooting guides
+                        </p>
+                        <div class="text-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-file-pdf mr-2"></i>PDF • 6.8 MB
+                        </div>
+                        <button
+                            class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition font-semibold">
+                            <i class="fas fa-download mr-2"></i>Download Manual
+                        </button>
+                    </div>
+
+                    <!-- Company Profile -->
+                    <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-8 shadow-lg hover:shadow-2xl transition"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div class="w-20 h-20 bg-indigo-600 rounded-2xl flex items-center justify-center mb-6 mx-auto">
+                            <i class="fas fa-building text-white text-3xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-3 text-center">Company Profile</h3>
+                        <p class="text-gray-600 mb-6 text-center">
+                            Learn about our history, values, manufacturing capabilities, and global presence
+                        </p>
+                        <div class="text-center text-sm text-gray-500 mb-4">
+                            <i class="fas fa-file-pdf mr-2"></i>PDF • 4.5 MB
+                        </div>
+                        <button
+                            class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition font-semibold">
+                            <i class="fas fa-download mr-2"></i>Download Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- INDUSTRIES PAGE -->
+    <div id="industriesPage" class="page-content hidden">
+        <section class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Industries We Serve</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">Diverse Industry
+                        Applications</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Our compressors serve a wide range of industries with customized solutions for specific
+                        requirements
+                    </p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/aerospace.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            AeroSpace
+                        </h4>
+                    </div>
+
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/chemicals.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Chemical,Plastics and Rubber
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/cusumer.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Consumer
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/electronics.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Electronics and semiconductor
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Environment.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Environmental
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Food.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Food and Beverage
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/General\ manufacuturing.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            General manufacturing
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/cement.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Cement
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/automobile.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            automobile
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/steel.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            steel
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Golf\ and\ resorts.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            golf and resorts
+
+
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Government\ and\ Military.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            government and military
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Industrial\ gases.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            industrial gases
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Marine.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            marine
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Mining\ and\ Construction.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            mining and construction
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Oil\ and\ Gas.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            oil and gas
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Forging.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            forging
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/PET\ Bottle\ Blowing.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            PET bottel blowing
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Pharma\,\ Life\ Sciences\ and\ Laboratories.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            pharma, life sciences and laboratories
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Power\ Generation.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            power generation
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Professional.png');" data-aos="zoom-in"
+                        data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            professional
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Pulp\,\ Paper\ and\ Printing.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            pulp paper and printing
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end"
+                        style="background-image: url('/industriesimages/Transportaion\ and\ Logistics.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            trasportaion and logistics
+                        </h4>
+                    </div>
+                    <div class="bg-center bg-cover bg-no-repeat rounded-xl text-center hover:shadow-lg transition group p-6 
+            flex flex-col items-center justify-end" style="background-image: url('/industriesimages/Ceramic.png');"
+                        data-aos="zoom-in" data-aos-delay="100">
+                        <h4 class="font-bold text-white text-sm bg-black/50 px-3 py-1 rounded-lg 
+               group-hover:bg-black/70 transition">
+                            Ceramic
+                        </h4>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contactPage" class="page-content hidden">
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16" data-aos="fade-up">
+                    <span class="text-blue-600 font-semibold text-sm uppercase tracking-wide">Get In Touch</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mt-2 mb-4">Contact Us</h2>
+                    <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+                        Ready to find the perfect compressor solution for your business? Get in touch with our experts
+                        today
+                    </p>
+                </div>
+
+                <!-- Location Map -->
+                <div class="mb-16" data-aos="fade-up">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-8">Our Location in Lucknow</h3>
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227748.99973753945!2d80.77770005!3d26.8466999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399bfd991f32b16b%3A0x93ccba8909978be7!2sLucknow%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div data-aos="fade-right">
+                        <div class="bg-gray-50 rounded-2xl p-8 shadow-xl">
+                            <form id="contactForm" class="space-y-6">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">First Name</label>
+                                        <input name="first_name" type="text"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                            placeholder="John">
+                                    </div>
+                                    <div>
+                                        <label class="block text-gray-700 font-semibold mb-2">Last Name</label>
+                                        <input name="last_name" type="text"
+                                            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                            placeholder="Doe">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Email Address</label>
+                                    <input name="email" type="email"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                        placeholder="john@example.com">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Phone Number</label>
+                                    <input name="phone" type="tel"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                        placeholder="+91 123 456 7890">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Product Interest</label>
+                                    <select name="product_interest"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                                        <option>Select a product</option>
+                                        <option>Tank Mounted Screw Air Compressor</option>
+                                        <option>Extra Efficient Permanent Magneic Motor</option>
+                                        <option>Tank Mounted Singal Stage Reciprocating Air Compressor</option>
+                                        <option>Base Mounted Screw Air Compressor</option>
+                                        <option>TANK Mounted High Pressure Reciprocating Air Compressor</option>
+                                        <option>Tank Mounted Low Pressure Lub.Air Compressor</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-700 font-semibold mb-2">Message</label>
+                                    <textarea name="message" rows="4"
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+                                        placeholder="Tell us about your requirements..."></textarea>
+                                </div>
+                                <button type="submit"
+                                    class="w-full bg-blue-600 text-white py-4 rounded-lg hover:bg-blue-700 transition font-bold text-lg">
+                                    Send Inquiry
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div data-aos="fade-left">
+                        <div class="space-y-8">
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+                                <div class="space-y-6">
+                                    <div class="flex items-start">
+                                        <div
+                                            class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fas fa-map-marker-alt text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Lucknow Office</h4>
+                                            <p class="text-gray-600">Regional Office & Service Center<br>Lucknow, Uttar
+                                                Pradesh<br>India</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div
+                                            class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fas fa-building text-green-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Gurugram Head Office</h4>
+                                            <p class="text-gray-600">Office & Godown Premises<br>Gurugram,
+                                                Haryana<br>India</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div
+                                            class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fas fa-phone text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Phone Number</h4>
+                                            <p class="text-gray-600">+91 123 456 7890<br>+91 098 765 4321</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div
+                                            class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Email Address</h4>
+                                            <p class="text-gray-600">info@vertexindia.com<br>sales@vertexindia.com</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start">
+                                        <div
+                                            class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
+                                            <i class="fas fa-clock text-blue-600 text-xl"></i>
+                                        </div>
+                                        <div>
+                                            <h4 class="font-bold text-gray-900 mb-1">Working Hours</h4>
+                                            <p class="text-gray-600">Monday - Saturday: 9:00 AM - 6:00 PM<br>Sunday:
+                                                Closed</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-4">Follow Us</h3>
+                                <div class="flex space-x-4">
+                                    <a href="#"
+                                        class="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition">
+                                        <i class="fab fa-facebook-f"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-12 h-12 bg-blue-400 rounded-lg flex items-center justify-center text-white hover:bg-blue-500 transition">
+                                        <i class="fab fa-twitter"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-12 h-12 bg-blue-700 rounded-lg flex items-center justify-center text-white hover:bg-blue-800 transition">
+                                        <i class="fab fa-linkedin-in"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-12 h-12 bg-pink-600 rounded-lg flex items-center justify-center text-white hover:bg-pink-700 transition">
+                                        <i class="fab fa-instagram"></i>
+                                    </a>
+                                    <a href="#"
+                                        class="w-12 h-12 bg-red-600 rounded-lg flex items-center justify-center text-white hover:bg-red-700 transition">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-screen overflow-y-auto">
+            <div class="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-center">
+                <h2 id="modalTitle" class="text-2xl font-bold text-gray-900"></h2>
+                <button onclick="closeProductModal()"
+                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 transition">
+                    <i class="fas fa-times text-gray-600"></i>
+                </button>
+            </div>
+            <div id="modalContent" class="p-6">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div
+                            class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mr-3">
+                            <i class="fas fa-cog text-white text-lg"></i>
+                        </div>
+                        <span class="text-xl font-bold">Vertex India</span>
+                    </div>
+                    <p class="text-gray-400 mb-4">
+                        Leading manufacturer of eco-friendly industrial air compressors with nearly a decade of
+                        experience.
+                    </p>
+                    <div class="flex space-x-3">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" onclick="showPage('home')"
+                                class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="#" onclick="showPage('about')"
+                                class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#" onclick="showPage('products')"
+                                class="text-gray-400 hover:text-white transition">Products</a></li>
+                        <li><a href="#" onclick="showPage('catalog')"
+                                class="text-gray-400 hover:text-white transition">Catalog</a></li>
+                        <li><a href="#" onclick="showPage('contact')"
+                                class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Products</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Rotary Screw Compressor</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Reciprocating Compressor</a>
+                        </li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Oil-Free Compressor</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">Dental Compressor</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">PET Compressor</a></li>
+                    </ul>
+                </div>
+                <!-- <div>
+                    <h4 class="text-lg font-bold mb-4">Newsletter</h4>
+                    <p class="text-gray-400 mb-4">Subscribe for product updates and industry insights.</p>
+                    <form class="space-y-2">
+                        <input type="email"
+                            class="w-full px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600 text-white"
+                            placeholder="Your email">
+                        <button type="submit"
+                            class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
+                            Subscribe
+                        </button>
+                    </form>
+                </div> -->
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                        &copy; 2024 Vertex India Compressors. All rights reserved.
+                    </p>
+                    <div class="flex space-x-6 text-sm">
+                        <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">Warranty</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+
+        // Initialize Swiper
+        const swiper = new Swiper('.productSlider', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+
+        // Page Navigation
+        function showPage(pageName) {
+            // Hide all pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.add('hidden');
+            });
+
+            // Show selected page
+            const pageMap = {
+                'home': 'homePage',
+                'about': 'aboutPage',
+                'products': 'productsPage',
+                'catalog': 'catalogPage',
+                'industries': 'industriesPage',
+                'contact': 'contactPage'
+            };
+
+            const pageId = pageMap[pageName];
+            if (pageId) {
+                document.getElementById(pageId).classList.remove('hidden');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Close mobile menu if open
+            document.getElementById('mobileMenu').classList.add('hidden');
+
+            // Reinitialize AOS for new content
+            AOS.refresh();
+        }
+
+        // Product Modal Data
+        const productData = {
+            rotary: {
+                title: 'Tank Mounted Screw Air Compressor',
+                image: '/images/Tank Mounted Screw Air Compressor.png',
+                description: 'Compressors frequently use synthetic lubricants based on the OEM’s recommendation. Equipment manufacturers often require the use of their branded lubricants as a…',
+                features: [
+                    'Energy-efficient operation with variable speed drive',
+                    'Low noise levels (65-75 dB)',
+                    'Continuous duty cycle capability',
+                    'Advanced cooling system',
+                    'Integrated air dryer option',
+                    'Smart control panel with IoT connectivity'
+                ],
+                specs: {
+                    'Pressure Range': '7-13 bar',
+                    'Flow Rate': '50-500 CFM',
+                    'Motor Power': '5-100 HP',
+                    'Noise Level': '65-75 dB',
+                    'Cooling': 'Air/Water cooled',
+                    'Warranty': '2 years comprehensive'
+                },
+                applications: ['Manufacturing', 'Automotive', 'Food Processing', 'Pharmaceuticals', 'Textile']
+            },
+            reciprocating: {
+                title: 'Extra Efficient Permanent Magneic Motor',
+                image: '/images/Extra Efficient Permanent Magneic Motor.png',
+                description: 'Therefore, the efficiency coefficient of the PMSM varies from 92% to 97%. As a result, this type of Steam Turpla is replacing the traditional PMSM in for industrial applications.',
+                features: [
+                    'High pressure capability up to 40 bar',
+                    'Durable cast iron construction',
+                    'Cost-effective solution',
+                    'Easy maintenance access',
+                    'Multiple stage options',
+                    'Reliable performance'
+                ],
+                specs: {
+                    'Pressure Range': '10-40 bar',
+                    'Flow Rate': '20-200 CFM',
+                    'Motor Power': '3-50 HP',
+                    'Stages': '1-3 stages',
+                    'Cooling': 'Air cooled',
+                    'Warranty': '1 year'
+                },
+                applications: ['Construction', 'Mining', 'Oil & Gas', 'Chemical', 'General Industry']
+            },
+            oilfree: {
+                title: 'Tank Mounted Singal Stage Reciprocating Air Compressor',
+                image: '/images/Tank Mounted Singal Stage Reciprocating Air Compressor.png',
+                description: 'Single-stage compressors are also known as piston compressors.',
+                features: [
+                    '100% oil-free air quality',
+                    'Food-grade certified (ISO 8573-1 Class 0)',
+                    'Low maintenance requirements',
+                    'Stainless steel components',
+                    'Advanced filtration system',
+                    'Hygienic design'
+                ],
+                specs: {
+                    'Pressure Range': '7-10 bar',
+                    'Flow Rate': '30-300 CFM',
+                    'Motor Power': '5-75 HP',
+                    'Air Quality': 'ISO 8573-1 Class 0',
+                    'Cooling': 'Air/Water cooled',
+                    'Warranty': '3 years'
+                },
+                applications: ['Food & Beverage', 'Pharmaceuticals', 'Medical', 'Electronics', 'Laboratories']
+            },
+            dental: {
+                title: 'Base Mounted Screw Air Compressor',
+                image: '/images/Base Mounted Screw Air Compressor.png',
+                description: 'A Base Mounted Screw Air Compressor is a type of industrial air compressor that is designed for stability and ease…',
+                features: [
+                    'Ultra-quiet operation (40-50 dB)',
+                    'Medical-grade air quality',
+                    'Compact and space-saving design',
+                    'Integrated dryer and filters',
+                    'Low vibration',
+                    'Easy installation'
+                ],
+                specs: {
+                    'Pressure Range': '7-8 bar',
+                    'Flow Rate': '50-200 liters/min',
+                    'Motor Power': '1-3 HP',
+                    'Noise Level': '40-50 dB',
+                    'Tank Capacity': '24-50 liters',
+                    'Warranty': '2 years'
+                },
+                applications: ['Dental Clinics', 'Dental Hospitals', 'Dental Laboratories', 'Mobile Dental Units']
+            },
+            pet: {
+                title: 'TANK Mounted High Pressure Reciprocating Air Compressor',
+                image: '/images/TANK Mounted High Pressure Reciprocating Air Compressor.png',
+                description: 'In addition to capacity, compressed air tanks have a maximum pressure rating measured in pounds-per-square-inch or psi. Common ratings range…',
+                features: [
+                    'High pressure output (40 bar)',
+                    'Energy-efficient operation',
+                    'Reliable continuous performance',
+                    'Advanced cooling system',
+                    'Automatic pressure control',
+                    'Low maintenance design'
+                ],
+                specs: {
+                    'Pressure Range': '30-40 bar',
+                    'Flow Rate': '100-500 CFM',
+                    'Motor Power': '30-150 HP',
+                    'Cooling': 'Water cooled',
+                    'Control': 'PLC based',
+                    'Warranty': '2 years'
+                },
+                applications: ['Beverage Industry', 'PET Bottle Manufacturing', 'Packaging', 'Bottling Plants']
+            },
+            dryer: {
+                title: 'Tank Mounted Low Pressure Lub.Air Compressor',
+                image: '/images/Tank Mounted Low Pressure Lub.Air Compressor.png',
+                description: 'Compressors frequently use synthetic lubricants based on the OEM’s recommendation. Equipment manufacturers often require the use of their branded lubricants as a…',
+                features: [
+                    'Efficient moisture removal',
+                    'Energy-saving design',
+                    'Low dew point (-20°C)',
+                    'Automatic drain valve',
+                    'Digital display',
+                    'Compact footprint'
+                ],
+                specs: {
+                    'Capacity': '50-1000 CFM',
+                    'Dew Point': '-20°C to +3°C',
+                    'Working Pressure': '7-13 bar',
+                    'Refrigerant': 'R134a/R407c',
+                    'Power Supply': '230V/415V',
+                    'Warranty': '1 year'
+                },
+                applications: ['All Industries', 'Manufacturing', 'Automotive', 'Food Processing', 'Pharmaceuticals']
+            }
+        };
+
+        // Open Product Modal
+        function openProductModal(productId) {
+            const product = productData[productId];
+            const modal = document.getElementById('productModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            modalTitle.textContent = product.title;
+
+            modalContent.innerHTML = `
+                <img src="${product.image}" alt="${product.title}" class="w-full h-80 object-cover rounded-xl mb-6">
+                
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Description</h3>
+                    <p class="text-gray-600">${product.description}</p>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Key Features</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        ${product.features.map(feature => `
+                            <div class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mr-2 mt-1"></i>
+                                <span class="text-gray-600">${feature}</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Technical Specifications</h3>
+                    <div class="bg-gray-50 rounded-lg p-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${Object.entries(product.specs).map(([key, value]) => `
+                                <div class="flex justify-between border-b border-gray-200 pb-2">
+                                    <span class="font-semibold text-gray-700">${key}:</span>
+                                    <span class="text-gray-600">${value}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Applications</h3>
+                    <div class="flex flex-wrap gap-2">
+                        ${product.applications.map(app => `
+                            <span class="bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold">${app}</span>
+                        `).join('')}
+                    </div>
+                </div>
+
+                <div class="flex gap-4">
+                    <a href="#" onclick="closeProductModal(); showPage('contact');" class="flex-1 bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition font-semibold text-center">
+                        Request Quote
+                    </a>
+                  
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close Product Modal
+        function closeProductModal() {
+            const modal = document.getElementById('productModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        document.getElementById('productModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeProductModal();
+            }
+        });
+
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function () {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+    <!-- EmailJS integration: send contact form on submit -->
+    <!--
+        Steps to use:
+        1. Create an account at https://www.emailjs.com/ and add an email service.
+        2. Create an email template that uses variables: first_name, last_name, email, phone, product_interest, message
+        3. Replace YOUR_EMAILJS_USER_ID, YOUR_SERVICE_ID and YOUR_TEMPLATE_ID below with values from your EmailJS dashboard.
+    -->
+    <script src="/SendMail.js"></script>
+    <!-- Floating WhatsApp mini icon (site-wide) -->
+    <a class="whatsapp-fab"
+        href="https://api.whatsapp.com/send/?phone=9969079124&amp;text=Hello+Sir%2C+I+have+a+Question.&amp;type=phone_number&amp;app_absent=0"
+        target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat with us">
+        <!-- Use Font Awesome WhatsApp brand icon when available -->
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+</body>
+
+</html>

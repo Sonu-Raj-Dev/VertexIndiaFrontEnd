@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WhatsApp Quick Link</title>
+  <style>
+    /* Floating WhatsApp mini icon */
+    .whatsapp-fab {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      width: 52px;
+      height: 52px;
+      background: #25D366;
+      border-radius: 50%;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: transform .12s ease, box-shadow .12s ease;
+      text-decoration: none;
+    }
+    .whatsapp-fab:hover{ transform: translateY(-3px); box-shadow: 0 10px 18px rgba(0,0,0,0.2); }
+    .whatsapp-fab svg{ width:26px; height:26px; fill: #fff; display:block }
+    .center { max-width: 900px; margin: 40px auto; font-family: Arial, Helvetica, sans-serif; padding: 0 16px }
+  </style>
+</head>
+<body>
+  <main class="center">
+    <h1>WhatsApp Quick Link Page</h1>
+    <p>This page shows a small floating WhatsApp icon. Clicking it opens a chat to the configured number in a new tab.</p>
+    <p>The button links to:</p>
+    <code>https://api.whatsapp.com/send/?phone=9969079124&amp;text=Hello+Sir%2C+I+have+a+Question.&amp;type=phone_number&amp;app_absent=0</code>
+  </main>
+
+  <!-- Floating WhatsApp button -->
+  <a class="whatsapp-fab" 
+     href="https://api.whatsapp.com/send/?phone=9969079124&amp;text=Hello+Sir%2C+I+have+a+Question.&amp;type=phone_number&amp;app_absent=0" 
+     target="_blank" rel="noopener noreferrer" aria-label="Open WhatsApp chat with us">
+    <!-- WhatsApp SVG (white) -->
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.149-.671.15-.198.297-.767.967-.94 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.654-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.173.198-.297.298-.495.099-.198 0-.371-.05-.52-.05-.149-.671-1.611-.92-2.207-.242-.579-.487-.5-.671-.51l-.571-.01c-.198 0-.52.074-.793.371-.273.297-1.04 1.016-1.04 2.479 0 1.462 1.064 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487 2.981 1.286 2.981.857 3.518.803.536-.049 1.758-.718 2.006-1.413.247-.695.247-1.29.173-1.413-.074-.124-.273-.198-.57-.347z"/>
+      <path d="M12 2C6.486 2 2 6.486 2 12c0 1.934.51 3.744 1.478 5.304L2 22l4.812-1.26C8.294 21.714 10.12 22 12 22c5.514 0 10-4.486 10-10S17.514 2 12 2z"/>
+    </svg>
+  </a>
+</body>
+</html>
