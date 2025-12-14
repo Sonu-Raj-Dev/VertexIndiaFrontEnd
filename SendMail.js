@@ -21,10 +21,14 @@ document.getElementById("contactForm").addEventListener("submit", async function
     btn.disabled = true;
     btn.innerText = "Sending...";
 
+    // Determine API endpoint. You can override by adding `data-endpoint` to the form element.
+    // Default: use your Vercel URL when running on vercel.app, otherwise use a relative path
+    // so local PHP backends (or other local servers) can handle `/sendmail`.
+    const endpoint = form.dataset.endpoint || (location.hostname.includes('vercel.app') ? 'https://vertex-send-mail-api.vercel.app/sendmail' : '/sendmail');
+
     try {
-        // Point to the PHP backend that exists in the project
-        // (make sure a PHP server is running and serving this file)
-        const response = await fetch("https://vertex-send-mail-api.vercel.app/sendmail", {
+        // Send to configured endpoint
+        const response = await fetch(endpoint, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData)
